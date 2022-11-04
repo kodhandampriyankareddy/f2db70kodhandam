@@ -1,0 +1,22 @@
+{
+  "name": "f2wb70kodhandam",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "^4.3.4",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "mongodb": "^4.11.0",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2"
+  },
+  "main": "app.js",
+  "author": "priyanka",
+  "license": "ISC",
+  "description": ""
+}

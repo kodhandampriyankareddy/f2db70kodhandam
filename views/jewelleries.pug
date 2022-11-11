@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  h1= title
+  - let items = results 
+  button.btn( class="btn-primary ml-1", onclick= `click(\"/jewellery/create\")` ) Create a new Item
+    table(class="table table-stripped table-bordered")
+        thead(style="background-color:brown;color:white") 
+            tr
+                td Item ID
+                td Item jewellery_name 
+                td Item jewellery_size
+                td Item jewellery_type 
+                td Update
+                td Details
+                td Delete
+        tbody
+            
+            each item in items
+                tr
+                    td #{item._id}
+                    td #{item.jewellery_name}
+                    td #{item.jewellery_size}
+                    td #{item.jewellery_type}
+                    td 
+                      button.btn( class="btn-primary ml-1", onclick= `click(\"/jewellery/update/?id=${item._id}\")` ) Update
+                    td 
+                      button.btn( class="btn-primary ml-1", onclick= `click(\"/jewellery/detail/?id=${item._id}\")` ) Details
+                    td 
+                      button.btn( class="btn-primary ml-1", onclick= `click(\"/jewellery/delete/?id=${item._id}\")` ) Delete 
+                script. 
+                  function click(path){ 
+                    window.location.href=path 
+                  } 
+  - var result = [{"jewellery_name":"Daimonds","jewellery_size":25,"jewellery_type":"small"},{"jewellery_name":"Gold","jewellery_size":20,"jewellery_type":"large"},{"jewellery_name":"platinum","jewellery_size":3,"jewellery_type":"Small"}]
+  div.container-fluid
+    div.row
+        each item,index in result
+            div.col-sm-2(onclick=`buy(${index})`) jewellery Name: #{item["jewellery_name"]}  <br>  jewellery_size: #{item["jewellery_size"]} <br> jewellery_type: #{item["jewellery_type"]} 
+  script.
+    function buy(index){
+        alert("you purchased item "+(index+1))
+        }

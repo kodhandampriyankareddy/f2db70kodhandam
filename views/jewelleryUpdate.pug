@@ -1,0 +1,43 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let jewelleryid = toShow._id 
+  - let jewellery_name= toShow.jewellery_name
+  - let jewellery_size = toShow.jewellery_size
+  - let jewellery_type= toShow.jewellery_type
+   
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
+    div #{jewelleryid} 
+  - let actionid = "/resource/jewelleries/" + jewelleryid 
+  form(id='jewelleryForm', action= actionid, method="PUT") 
+    div.form-group 
+        label.jewelleryAttr(for='Jewellery_name') jewellery_name
+        input#jewellery_name(type='text', name='jewellery_name', value= jewellery_name ) 
+    div.form-group 
+        label.jewelleryAttr(for='jeweller_size') jewellery_size
+        input#jewellery_size(type='number', name='jewellery_size', value= jewellery_size ) 
+    div.form-group 
+        label.jewelleryAttr(for='jewellery_type') jeweller_type
+        input#jewellery_type(type='text', name='jewellery_type', value= jewellery_type ) 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['jewelleryForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    })

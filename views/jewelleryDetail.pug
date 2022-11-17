@@ -1,0 +1,22 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let jewelleryid = toShow._id 
+  - let jewellery_name = toShow.jewellery_name 
+  - let jewellery_size = toShow.jewellery_size
+  - let jewellery_type= toShow.jewellery_type
+  div 
+    div.row 
+      div(class='jewelleryAttr mr-3') jewellery ID is: 
+      div #{jewelleryid} 
+    div.row 
+      div(class='jewelleryAttr mr-3') jewellery_name is: 
+      div #{jewellery_name} 
+    div.row 
+      div(class='jewelleryAttr mr-3') jewellery_size is: 
+      div #{jewellery_size} 
+    div.row 
+      div(class='jewelleryAttr mr-3') jewellery_type is: 
+      div #{jewellery_type}

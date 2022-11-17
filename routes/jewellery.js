@@ -7,9 +7,17 @@ var router = express.Router();
 //   res.render('jewellery', { title: 'Search Results jewellery' });
 // });
 
-/* GET costumes */ 
+/* GET jewellerys */ 
 router.get('/', jewellery_controlers.jewellery_view_all_Page ); 
+/* GET detail jewellery page */
+router.get('/detail', jewellery_controlers.jewellery_view_one_Page);
+/* GET create jewellery page */
+router.get('/create', jewellery_controlers.jewellery_create_Page);
+/* GET create update page */
+router.get('/update', jewellery_controlers.jewellery_update_Page);
+/* GET delete jewellery page */
+router.get('/delete', jewellery_controlers.jewellery_delete_Page);
 
-// GET request for one costume. 
-router.get('/jewelleries/:id', jewellery_controlers.jewellery_detail); 
+// GET request for one jewellery. 
+//router.get('/jewelleries/:id', jewellery_controlers.jewellery_detail); 
 module.exports = router;

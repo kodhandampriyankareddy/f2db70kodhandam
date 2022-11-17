@@ -1,0 +1,34 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  form(id='jewelleryForm', action="/resource/jewelleries", method="POST") 
+    div.form-group 
+        label.jewelleryAttr(for='jewellery_name') jewellery name
+        input#jewellery_name(type='text', name='jewellery_name') 
+    div.form-group 
+        label.jewelleryAttr(for='jewellery_size') jewellery size 
+        input#jewellery_size(type='number', name='jewellery_size') 
+    div.form-group 
+        label.jewelleryAttr(for='jewellery_type') jewellery cost 
+        input#jewellery_type(type='text', name='jewellery_type') 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['jewelleryForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'POST', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Save succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Save failed " + error ) 
+      }); 
+    }); 

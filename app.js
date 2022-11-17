@@ -30,19 +30,19 @@ async function recreateDB() {
   // Delete everything 
   await jewellery.deleteMany();
 
-  let instance1 = new jewellery({ jewellery_name: "Daimonds", jewellery_size: 25, jewellery_type: "small" });
+  let instance1 = new jewellery({jewellery_name:"Daimonds", jewellery_size:25, jewellery_type:"small" });
   instance1.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("First object saved")
   });
 
-  let instance2 = new jewellery({ jewellery_name: "Gold", jewellery_size: 20, jewellery_type: "large" });
+  let instance2 = new jewellery({jewellery_name:"Gold", jewellery_size:20, jewellery_type:"large" });
   instance2.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("Second object saved")
   });
 
-  let instance3 = new jewellery({ jewellery_name: "platinum", jewellery_size: 3, jewellery_type: "Small" });
+  let instance3 = new jewellery({jewellery_name:"platinum", jewellery_size:3, jewellery_type:"Small" });
   instance3.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("third object saved")

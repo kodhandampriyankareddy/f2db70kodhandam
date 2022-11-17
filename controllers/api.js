@@ -1,7 +1,7 @@
 // API for our resources 
 exports.api = function(req, res) { 
     res.write('['); 
-    res.write('{"resource":"jewellerys", '); 
+    res.write('{"resource":"jewelleries", '); 
     res.write('  "verbs":["GET","PUT", "DELETE"] '); 
     res.write('}'); 
     res.write(']') 

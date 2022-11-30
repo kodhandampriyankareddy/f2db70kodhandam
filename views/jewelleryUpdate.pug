@@ -2,17 +2,20 @@ extends layout
  
 block content 
   h1= title 
+  if (toShow == null) 
+    h2 No instance to display 
+  else
  
   - let jewelleryid = toShow._id 
   - let jewellery_name= toShow.jewellery_name
   - let jewellery_size = toShow.jewellery_size
   - let jewellery_type= toShow.jewellery_type
    
-  div.row(class='mb-2') 
+  div.row(class='mb-2', style='color:pink') 
     div.mr-1 ID is 
     div #{jewelleryid} 
   - let actionid = "/resource/jewelleries/" + jewelleryid 
-  form(id='jewelleryForm', action= actionid, method="PUT") 
+  form(id='jewelleryForm', action= actionid, method="PUT", style='background-color:acquamarine') 
     div.form-group 
         label.jewelleryAttr(for='Jewellery_name') jewellery_name
         input#jewellery_name(type='text', name='jewellery_name', value= jewellery_name ) 

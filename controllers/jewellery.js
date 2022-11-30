@@ -5,7 +5,7 @@ exports.jewellery_list = function(req, res) {
     res.send('NOT IMPLEMENTED: jewellery list'); 
 }; 
 
-// List of all jewellerys 
+// List of all jewelleries
 exports.jewellery_list = async function(req, res) { 
     try{ 
         thejewelleries = await jewellery.find(); 
@@ -32,7 +32,7 @@ exports.jewellery_detail = async function(req, res) {
         res.send(`{"error": document for id ${req.params.id} not found`); 
     } 
 }; 
-// List of all jewellerys 
+// List of all jewelleries
 // exports.jewellery_detail = async function(req, res) { 
 //     try{ 
 //         thejewelleries = await jewellery.find(); 
@@ -49,7 +49,7 @@ exports.jewellery_create_post = function(req, res) {
     res.send('NOT IMPLEMENTED: jewellery create POST'); 
 }; 
  
-// List of all jewellerys 
+// List of all jewelleries 
 exports.jewellery_create_post = async function(req, res) { 
     try{ 
         thejewelleries = await jewellery.find(); 
@@ -143,7 +143,7 @@ exports.jewellery_update_Page = async function(req, res) {
 
 
  
-// List of all jewellerys 
+// List of all jewelleries 
 // exports.jewellery_delete = async function(req, res) { 
 //     try{ 
 //         thejewelleries = await jewellery.find(); 
@@ -175,7 +175,7 @@ result });
 //     res.send('NOT IMPLEMENTED: jewellery update PUT' + req.params.id); 
 // }; 
 
-// List of all jewellerys 
+// List of all jewelleries
 // exports.jewellery_update_put = async function(req, res) { 
 //     try{ 
 //         thejewelleries = await jewellery.find(); 
@@ -245,7 +245,7 @@ exports.jewellery_view_one_Page = async function(req, res) {
 exports.jewellery_view_all_Page = async function(req, res) { 
     try{ 
         thejewelleries = await jewellery.find(); 
-        res.render('jewellerys', { title: 'jewellery Search Results', results: thejewelleries }); 
+        res.render('jewelleries', { title: 'jewellery Search Results', results: thejewelleries }); 
     } 
     catch(err){ 
         res.status(500); 
